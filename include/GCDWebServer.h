@@ -29,16 +29,6 @@
 
 #import "GCDWebServerRequest.h"
 #import "GCDWebServerResponse.h"
-#import "GCDWebServerDataRequest.h"
-#import "GCDWebServerDataResponse.h"
-#import "GCDWebServerErrorResponse.h"
-#import "GCDWebServerFileRequest.h"
-#import "GCDWebServerFileResponse.h"
-#import "GCDWebServerFunctions.h"
-#import "GCDWebServerHTTPStatusCodes.h"
-#import "GCDWebServerMultiPartFormRequest.h"
-#import "GCDWebServerStreamedResponse.h"
-#import "GCDWebServerURLEncodedFormRequest.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -101,6 +91,13 @@ extern NSString* const GCDWebServerOption_Port;
  *  The default value is nil.
  */
 extern NSString* const GCDWebServerOption_BonjourName;
+
+/**
+*  The Bonjour TXT Data used by the GCDWebServer (NSDictionary<NSString, NSString>).
+*
+*  The default value is nil.
+*/
+extern NSString* const GCDWebServerOption_BonjourTXTData;
 
 /**
  *  The Bonjour service type used by the GCDWebServer (NSString).

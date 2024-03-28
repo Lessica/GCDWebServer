@@ -23,11 +23,12 @@ let package = Package(
 			exclude: ["README.md"],
 			sources: ["Core", "Requests", "Responses", "private"],
             resources: [
-                .copy("PrivacyInfo.xcprivacy")
+                .copy("PrivacyInfo.xcprivacy"),
+				.copy("Resources/GCDWebUploader.bundle"),
             ],
 			publicHeadersPath: "include",
 			cxxSettings: [
-				.headerSearchPath("./private")
+				.headerSearchPath("./private"),
 			]
 		)
 	]

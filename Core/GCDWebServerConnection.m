@@ -755,9 +755,7 @@ static inline NSUInteger _ScanHexNumber(const void* bytes, NSUInteger size) {
 
 - (void)processRequest:(GCDWebServerRequest*)request completion:(GCDWebServerCompletionBlock)completion {
   GWS_LOG_DEBUG(@"Connection on socket %i processing request \"%@ %@\" with %lu bytes body", _socket, _virtualHEAD ? @"HEAD" : _request.method, _request.path, (unsigned long)_totalBytesRead);
-	if (_handler != nil) {
-		_handler.asyncProcessBlock(request, [completion copy]);
-	}
+  _handler.asyncProcessBlock(request, [completion copy]);
 }
 
 // http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.25
@@ -796,8 +794,8 @@ static inline BOOL _CompareResources(NSString* responseETag, NSString* requestET
   GWS_DCHECK(_responseMessage == NULL);
   GWS_DCHECK((statusCode >= 400) && (statusCode < 600));
   [self _initializeResponseHeadersWithStatusCode:statusCode];
-  [self writeHeadersWithCompletionBlock:^(BOOL success) {
-    ;  // Nothing more to do
+  [self writeHeadersWithCompletionBlock:^(BOOL success){
+      // Nothing more to do
   }];
   GWS_LOG_DEBUG(@"Connection aborted with status code %i on socket %i", (int)statusCode, _socket);
 }
